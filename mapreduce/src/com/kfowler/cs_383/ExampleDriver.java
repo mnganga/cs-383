@@ -35,7 +35,7 @@ public class ExampleDriver {
                 "A map/reduce program that counts the words in the input files.");
         pgd.addClass("wordsizecount", WordSizeCount.class,
                    "A map/reduce program that counts occurences of each word length in the input files.");
-        pgd.addClass("filelist", FileList.class,
+        pgd.addClass("wordfiles", WordFiles.class,
                    "A map/reduce program that lists the file names each word is found in from the set of input files.");
         exitCode = pgd.run(argv);
     }

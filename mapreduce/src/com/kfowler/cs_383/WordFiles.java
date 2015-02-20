@@ -34,7 +34,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class FileList {
+public class WordFiles {
 
   public static class TokenizerMapper 
        extends Mapper<Object, Text, Text, Text>{
@@ -96,14 +96,14 @@ public class FileList {
     Configuration conf = new Configuration();
     String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
     if (otherArgs.length < 2) {
-      System.err.println("Usage: filelist <in> [<in>...] <out>");
+      System.err.println("Usage: wordfiles <in> [<in>...] <out>");
       System.exit(2);
     }
 //    @SuppressWarnings("deprecation")
-//	Job job = new Job(conf, "file list");
+//	Job job = new Job(conf, "word files");
 // or
-    Job job = Job.getInstance(conf, "file list");
-    job.setJarByClass(FileList.class);
+    Job job = Job.getInstance(conf, "word files");
+    job.setJarByClass(WordFiles.class);
     job.setMapperClass(TokenizerMapper.class);
     //job.setCombinerClass(FileNameReducer.class);
     job.setReducerClass(FileNameReducer.class);
